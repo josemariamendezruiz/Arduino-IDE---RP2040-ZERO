@@ -1,5 +1,5 @@
 /*
-    COMO UTILIZAR EL LED RGB DE LA PLACA DEL RP2040 ZERO
+    COMO UTILIZAR EL LED RGB INTEGRADO DE LA PLACA DEL RP2040 ZERO
     CODIGO ORIGINAL DE Alan Yorinks
     MODIFICADO POR : JOSE MARIA MENDEZ RUIZ
     DICIEMBRE 2022
@@ -23,7 +23,7 @@
 
 #include <NeoPixelConnect.h>
 
-NeoPixelConnect p(16, 1, pio0, 0);
+NeoPixelConnect led(16, 1, pio0, 0);  // creamos la instacia para utilizar el led, con el nombre de led
 
 void setup(){
 
@@ -33,20 +33,20 @@ void setup(){
 void loop(){
 
     /********************   ROJO *************************************/        
-    p.neoPixelFill(255, 0, 0, true);
-    delay(1000);
-    p.neoPixelClear(true);
-    delay(1000);
-
-    /********************   AZUL *************************************/        
-    p.neoPixelFill(0, 255, 0, true);
-    delay(1000);
-    p.neoPixelClear(true);
+    led.neoPixelFill(255, 0, 0, true); // le pasamos el valor de RGB del color que queremos
+    delay(1000); 
+    led.neoPixelClear(true); // limpiamos el led
     delay(1000);
 
-    /********************   VERDE *************************************/        
-    p.neoPixelFill(0, 0, 255, true);
+    /********************   VERDE  *************************************/        
+    led.neoPixelFill(0, 255, 0, true);// le pasamos el valor de RGB del color que queremos
     delay(1000);
-    p.neoPixelClear(true);
+    led.neoPixelClear(true);// limpiamos el led
+    delay(1000);
+
+    /********************   AZUL*************************************/        
+    led.neoPixelFill(0, 0, 255, true); // le pasamos el valor de RGB del color que queremos
+    delay(1000);
+    led.neoPixelClear(true); // limpiamos el led
     delay(1000);
 }
