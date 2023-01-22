@@ -1,0 +1,42 @@
+/*
+    ENCENDIDO y APAGADO DEL LED RGB INTEGRADO - BLINK
+    CODIGO ORIGINAL DE Alan Yorinks
+    MODIFICADO POR : JOSE MARIA MENDEZ RUIZ
+    ENERO 2023
+    CODIGO LIBRE PARA UTILIZAR COMO QUIERAS
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU GENERAL PUBLIC LICENSE
+    Version 3 as published by the Free Software Foundation; either
+    or (at your option) any later version.
+    This library is distributed in the hope that it will be useful,f
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    General Public License for more details.
+ 
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+
+#include <NeoPixelConnect.h>
+
+int pin_led = 16; // Este es el pin de IO que vamos a utilizar, en nuestro caso el led integrado esta en el IO16
+
+NeoPixelConnect led(pin_led, 1, pio0, 0);  // creamos la instacia para utilizar el led, con el nombre de led
+
+
+void setup(){
+
+}
+
+
+void loop(){
+  
+    led.neoPixelFill(0, 0, 255, true); // Encendemos el led , en este ejemplo encendemos el AZUL
+    delay(1000);
+    led.neoPixelClear(true); // Apagamos el led
+    delay(1000);
+}
